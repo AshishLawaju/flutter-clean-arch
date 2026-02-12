@@ -1,9 +1,15 @@
 import 'package:clean_coding/config/routes/routes.dart';
 import 'package:clean_coding/config/routes/routes_name.dart';
-import 'package:clean_coding/views/splash/splash_screen.dart';
+import 'package:clean_coding/repository/auth/login_http_api_repository.dart';
+import 'package:clean_coding/repository/auth/login_mock_api_repository.dart';
+import 'package:clean_coding/repository/auth/login_repository.dart';
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 
+
+GetIt getIt = GetIt.instance;
 void main() {
+  serviceLocator();
   runApp(const MyApp());
 }
 
@@ -43,3 +49,11 @@ class MyApp extends StatelessWidget {
 
 
 //dart run build_runner build
+
+
+
+void serviceLocator(){
+  getIt.registerLazySingleton<LoginRepository>(()=>LoginHttpApiRepository());
+  // getIt.registerLazySingleton<LoginRepository>(()=>LoginMockApiRepository());
+
+}

@@ -1,0 +1,31 @@
+part of 'login_bloc.dart';
+
+abstract class LoginEvent extends Equatable {
+  const LoginEvent();
+
+  @override
+  List<Object> get props => [];
+}
+
+class UsernameChanged extends LoginEvent {
+  final String username;
+  const UsernameChanged({required this.username});
+
+  @override
+  List<Object> get props => [username];
+}
+
+class Usernamefoused extends LoginEvent {}
+
+class PasswordChanged extends LoginEvent {
+  final String password;
+
+  const PasswordChanged({required this.password});
+  @override
+  List<Object> get props => [password];
+}
+
+class Passwordfocused extends LoginEvent {}
+
+
+class LoginButton extends LoginEvent {}
