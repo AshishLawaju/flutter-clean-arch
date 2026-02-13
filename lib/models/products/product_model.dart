@@ -4,7 +4,7 @@ part 'product_model.freezed.dart';
 part 'product_model.g.dart';
 
 @freezed
-abstract class ProductModel with _$ProductModel {
+ abstract class ProductModel with _$ProductModel {
   const factory ProductModel({
     @JsonKey(name: 'id') int? id,
     @JsonKey(name: 'title') String? title,

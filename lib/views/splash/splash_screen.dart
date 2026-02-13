@@ -15,10 +15,11 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   SplashServices _splashServices = SplashServices();
 
-@override
+  @override
   void initState() {
     _splashServices.inLogin(context);
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,14 +27,14 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Center(
           child: Column(
             children: [
-              Text("Move to Home"),
+              Text("Logo"),
               LoadingWidget(),
-              RoundButton(
-                title: "Move",
-                onPress: () {
-                  Navigator.pushNamed(context, RoutesName.homeScreen);
-                },
-              ),
+              // RoundButton(
+              //   title: "Move",
+              //   onPress: () {
+              //     Navigator.pushNamed(context, RoutesName.homeScreen);
+              //   },
+              // ),
             ],
           ),
         ),
