@@ -3,6 +3,8 @@ import 'package:clean_coding/config/routes/routes_name.dart';
 import 'package:clean_coding/repository/auth/login_http_api_repository.dart';
 import 'package:clean_coding/repository/auth/login_mock_api_repository.dart';
 import 'package:clean_coding/repository/auth/login_repository.dart';
+import 'package:clean_coding/repository/products/product_http_api_repository.dart';
+import 'package:clean_coding/repository/products/product_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 
@@ -49,11 +51,15 @@ class MyApp extends StatelessWidget {
 
 
 //dart run build_runner build
+//flutter packages pub run build_runner build --delete-conflicting-outputs
 
 
 
 void serviceLocator(){
   getIt.registerLazySingleton<LoginRepository>(()=>LoginHttpApiRepository());
   // getIt.registerLazySingleton<LoginRepository>(()=>LoginMockApiRepository());
+
+  getIt.registerLazySingleton<ProductRepository>(()=>ProductHttpApiRepository());
+
 
 }

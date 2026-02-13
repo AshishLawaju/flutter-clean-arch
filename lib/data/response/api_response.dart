@@ -1,0 +1,26 @@
+import 'package:clean_coding/utils/enums.dart';
+
+class ApiResponse<T> { //T can be any string, int , dynamic
+  Status? status;
+  T? data;
+  String? message;
+
+
+  ApiResponse (this.status,this.data,this.message);
+
+  ApiResponse.loading():status = Status.loading;
+  ApiResponse.completed(this.data) : status = Status.completed;
+  ApiResponse.error(this.message):status = Status.error;
+ 
+
+
+  @override
+  String toString(){
+
+    return "Status : $status \n Message : $message ]n Data $data";
+  }
+
+}
+
+
+// ApiResponse<String> name = ApiResponse(Status.loading, "any da 12", "mes");

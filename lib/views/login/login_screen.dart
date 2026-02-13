@@ -1,4 +1,5 @@
-import 'package:clean_coding/bloc/bloc/login_bloc.dart';
+import 'package:clean_coding/bloc/login/login_bloc.dart';
+import 'package:clean_coding/config/routes/routes_name.dart';
 import 'package:clean_coding/main.dart';
 import 'package:clean_coding/repository/auth/login_repository.dart';
 import 'package:clean_coding/utils/enums.dart';
@@ -54,7 +55,12 @@ class _LoginScreenState extends State<LoginScreen> {
             }
 
             if (state.postApiStatus == PostApiStatus.success) {
-              FlushBarHelper.flushBarErrorMessage('Login Successful', context);
+              Navigator.pushNamed(context, RoutesName.homeScreen);
+              FlushBarHelper.flushBarSuccessMessage('Login Successful', context);
+
+
+
+
               // ScaffoldMessenger.of(context)
               //   ..hideCurrentSnackBar()
               //   ..showSnackBar(SnackBar(content: Text(state.error.toString())));

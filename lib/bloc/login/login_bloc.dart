@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:clean_coding/models/user/user_model.dart';
 import 'package:clean_coding/repository/auth/login_repository.dart';
+import 'package:clean_coding/services/session_manager/session_controller.dart';
 import 'package:clean_coding/utils/enums.dart';
 import 'package:equatable/equatable.dart';
 
@@ -53,7 +54,12 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         throw Exception('Invalid tokens received from server');
       }
 
+      await SessionController().saveuserInPreference(response);
+      await SessionController().getUserFromPreference();
+
       print("Login success! AccessToken: $accessToken");
+
+
 
       emit(
         state.copyWith(
